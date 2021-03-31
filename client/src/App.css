@@ -1,0 +1,131 @@
+/* body{
+  height: 100%;
+  background-color: brown;
+} */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rCard{
+  border: 1px solid black;
+  border-radius: 20%;
+}
+
+.loginC{
+  background-color: #F0F2F5;
+  /* height: 100%; */
+}
+.login_home{
+  margin-top: 7%;
+  padding-bottom: 80px;
+}
+.registerC{
+  background-color: #FAFAFA;
+}
+.log_card{
+  background-color: white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  transition: 0.3s;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.btn_create{
+  background-color: #EA7336;
+  color: white;
+  margin-bottom: 20px;
+}
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.me_img{
+  width:"96";
+  height:"96"
+}
+.gr27e{
+  /* border: 1px solid black; */
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  transition: 0.3s;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+.navTab{
+  color: black;
+}
+/* table
+{
+    counter-reset: rowNumber;
+}
+
+table tr > th:first-child
+{
+    counter-increment: rowNumber;
+}
+
+table tr th:first-child::before
+{
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+} */
+
+.op_new{
+  text-align:'center';
+  cursor: "pointer";
+  padding:7;
+  border:"solid black 1px";
+  border-radius:'2px';
+  background-color:"#CF9508";
+  color:"black";
+}
