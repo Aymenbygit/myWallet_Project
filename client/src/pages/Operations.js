@@ -17,26 +17,40 @@ const Operations = ({ search }) => {
   const dispatch = useDispatch();
   const Operation = useSelector((state) => state.OperationReducer);
   const SaveOperation = useSelector((state) => state.SavedOperation);
-  const [field, setfield] = useState({
-    label: "",
-    amount: "",
-    type: "",
-  });
+  const [toggleEdit,setToggleEdit] = useState(false)
+  const [field, setfield] = useState(SaveOperation?SaveOperation.saved:'');
   const handleChange = (e) => {
     setfield({ ...field, [e.target.name]: e.target.value });
   };
-  const zot = SaveOperation.saved && SaveOperation.saved.label;
-  console.log(zot);
+  const update = e => {
+    setToggleEdit(!toggleEdit)
+}
+const updateNow = e => {
+  e.preventDefault(); 
+  dispatch(editOps(SaveOperation.saved._id))
+  update();
+}
+useEffect( ()=> {
+  if(!SaveOperation)
+  setfield({
+    label:"",
+    amount:"",
+    type:"",
+  })
+  else
+  setfield(SaveOperation)
+},[SaveOperation])
+
   const aamount = Operation.map((el) => el.amount);
   // const reducer = (accumulator, currentValue) => accumulator + currentValue;
   var ii = 1;
-  useEffect(() => {
-    dispatch(loadUser());
-    // dispatch(getOps())
-  }, [SaveOperation]);
-  useEffect(() => {
-    setfield(SaveOperation);
-  }, [SaveOperation]);
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  //   // dispatch(getOps())
+  // }, [SaveOperation]);
+  // useEffect(() => {
+  //   setfield(SaveOperation);
+  // }, [SaveOperation]);
   return (
     <div className="container">
       <h2 className="btn-dark">All Operations</h2>
@@ -95,22 +109,22 @@ const Operations = ({ search }) => {
           Click here to add new operation
         </td>
         <tbody>
-          {SaveOperation.isEdited && (
+          {!toggleEdit && (
             <input
               type="text"
               name="label"
               placeholder=".."
               onChange={handleChange}
-              value={SaveOperation.saved && SaveOperation.saved.label}
+              value={field.label}
             />
           )}
-          {SaveOperation.isEdited && (
+          {!toggleEdit && (
             <input
               type="text"
               name="amount"
               placeholder=".."
               onChange={handleChange}
-              value={SaveOperation.saved && SaveOperation.saved.amount}
+              value={field.amount}
             />
           )}
           {Operation.map((el, i) => (
@@ -143,20 +157,7 @@ const Operations = ({ search }) => {
                 <i className="fas fa-trash" style={{ cursor: "pointer" }}></i>
               </td>
               <td>
-                <i
-                  className={
-                    SaveOperation.isEdited
-                      ? "far fa-check-square"
-                      : "fas fa-edit"
-                  }
-                  style={{ cursor: "pointer" }}
-                  // className="col-1"
-                  onClick={() => {
-                    SaveOperation.isEdited
-                      ? dispatch(saveOps(el, (SaveOperation.isEdited = false)))
-                      : dispatch(editOps(el._id));
-                  }}
-                ></i>
+              <button onClick={!toggleEdit ? update :updateNow}>{!toggleEdit ? "update" :"Add"}</button>
               </td>
             </tr>
           ))}

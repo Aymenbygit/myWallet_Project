@@ -65,10 +65,10 @@ export const deleteOps = (id) => (dispatch) => {
   dispatch(getOps());
 };
 
-export const editOps = (id) => (dispatch) => {
+export const editOps = (_id) => (dispatch) => {
   setToken();
   axios
-    .put(`/operation/update/${id}`)
+    .put(`/operation/update/${_id}`)
     .then((res) =>
       dispatch({
         type: SAVED_OP,

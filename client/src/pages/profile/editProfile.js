@@ -24,38 +24,7 @@ const EditProfile = () => {
   return (
     <div className="container">
       <h1>Edit account</h1>
-      <form onSubmit ={updateNow}>
-        {/* <table className="table">
-      <tbody>
-        <tr scope="row">
-          <th scope="col">First name:</th>
-          <input className="form-control input_up"  value={field.name} name="text" type="text" onChange={(e)=> setfield(e.target.value)} /> }
-          <th scope="col">{AuthReducer.user.first_name}</th>
-          <button type="button" className="btn btn-dark" onClick={()=> {dispatch(editUser(AuthReducer.user._id))}}>Edit</button>
-        </tr>
-        <tr scope="row">
-          <th scope="col">Last name:</th>
-          <th scope="col">{AuthReducer.user.last_name}</th>
-          <button className="btn btn-dark">Edit</button>
-        </tr>
-        <tr scope="row">
-          <th scope="col">Birth Day:</th>
-          <th scope="col">{AuthReducer.user.birth_day}</th>
-          <button className="btn btn-dark">Edit</button>
-        </tr>
-        <tr scope="row">
-          <th scope="col">Address:</th>
-          <th scope="col">{AuthReducer.user.adress}</th>
-          <button className="btn btn-dark">Edit</button>
-        </tr>
-        <tr scope="row">
-          <th scope="col">Phone:</th>
-          <th scope="col">{AuthReducer.user.phone}</th>
-          <button className="btn btn-dark">Edit</button>
-        </tr>
-        </tbody>
-       </table> */}
-
+      <form onSubmit={updateNow}>
         <div>
           {!toggleEdit ? (
             <p> First name : {AuthReducer.user.first_name}</p>
@@ -72,7 +41,7 @@ const EditProfile = () => {
           )}
         </div>
         <div>
-        {!toggleEdit ? (
+          {!toggleEdit ? (
             <p> Last name : {AuthReducer.user.last_name}</p>
           ) : (
             <>
@@ -87,7 +56,7 @@ const EditProfile = () => {
           )}
         </div>
         <div>
-        {!toggleEdit ? (
+          {!toggleEdit ? (
             <p> Birth Day : {AuthReducer.user.birth_day}</p>
           ) : (
             <>
@@ -102,7 +71,7 @@ const EditProfile = () => {
           )}
         </div>
         <div>
-        {!toggleEdit ? (
+          {!toggleEdit ? (
             <p> adresse : {AuthReducer.user.adress}</p>
           ) : (
             <>
@@ -117,7 +86,7 @@ const EditProfile = () => {
           )}
         </div>
         <div>
-        {!toggleEdit ? (
+          {!toggleEdit ? (
             <p> phone : {AuthReducer.user.phone}</p>
           ) : (
             <>
@@ -131,7 +100,19 @@ const EditProfile = () => {
             </>
           )}
         </div>
-        { !toggleEdit ? <button onClick={(e)=> {e.preventDefault(); update()}}> Update </button> : <button type="submit">Save</button> }    
+        {!toggleEdit ? (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              update();
+            }}
+          >
+            {" "}
+            Update{" "}
+          </button>
+        ) : (
+          <button type="submit">Save</button>
+        )}
       </form>
     </div>
   );
