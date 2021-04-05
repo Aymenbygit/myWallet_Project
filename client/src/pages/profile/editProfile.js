@@ -101,17 +101,17 @@ const EditProfile = () => {
           )}
         </div>
         {!toggleEdit ? (
-          <button
+          <button className='btn btn-dark'
             onClick={(e) => {
               e.preventDefault();
               update();
             }}
           >
             {" "}
-            Update{" "}
+            Edit{" "}
           </button>
         ) : (
-          <button type="submit">Save</button>
+          <button type="submit" className='btn btn-dark'>Save</button>
         )}
       </form>
     </div>

@@ -8,7 +8,7 @@ const Navbar = () => {
   const AuthReducer = useSelector((state) => state.AuthReducer);
   const dispatch = useDispatch();
   return (
-    <div className="container">
+    <div className="container navbaar">
       <ul className="nav nav-tabs ">
         {AuthReducer.isAuth ? (
           <>

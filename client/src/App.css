@@ -101,7 +101,7 @@
   padding-top: 30px;
 }
 .navTab{
-  color: black;
+  color: white;
 }
 /* table
 {
@@ -128,4 +128,118 @@ table tr th:first-child::before
   border-radius:'2px';
   background-color:"#CF9508";
   color:"black";
+}
+.accueil{
+  background-image:url("./fine.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height:800px; */
+  /* border: black 1px solid; */
+}
+.navbaar{
+  background-color: #183444;
+  padding: 15px
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }

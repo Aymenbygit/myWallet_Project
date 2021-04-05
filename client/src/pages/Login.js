@@ -37,7 +37,7 @@ const Login = ({ history }) => {
           <div>
             <img src={Logo} className="col-12" />
           </div>
-          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+          <h2><i>MY WALLET</i> is a personal finance application that rewards responsible spending and savings.</h2>
         </div>
         <div className="col-sm-5 login_home">
           <form className="container log_card " onSubmit={login}>

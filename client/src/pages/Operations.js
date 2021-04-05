@@ -27,7 +27,7 @@ const Operations = ({ search }) => {
 }
 const updateNow = e => {
   e.preventDefault(); 
-  dispatch(editOps(SaveOperation.saved._id))
+  dispatch(editOps(Operation._id))
   update();
 }
 useEffect( ()=> {
@@ -53,7 +53,7 @@ useEffect( ()=> {
   // }, [SaveOperation]);
   return (
     <div className="container">
-      <h2 className="btn-dark">All Operations</h2>
+      {/* <h2 className="btn-dark">All Operations</h2> */}
       <AddOperation handleClose={handleClose} show={show} />
       <h2 className="btn-dark">
         Balance{" "}
@@ -70,21 +70,12 @@ useEffect( ()=> {
       </small>
       <br />
       <input type="text" placeholder="search..." />
-      <table className="table table-hover">
+      {/* <table className="table table-hover">
         <thead>
-          {/* {
-              show ?
-              <tr>
-                <button>a</button>
-                <button>a</button>
-                <button>a</button>
-              </tr> : null
-              }
-            <button onClick={handleShow} className="btn btn-warning btn-search">hide</button> */}
+    
 
           <tr>
             <th scope="col">#</th>
-            {/* <th scope="col">Date</th> */}
             <th scope="col">label</th>
             <th scope="col">amout</th>
             <th scope="col">type</th>
@@ -115,7 +106,7 @@ useEffect( ()=> {
               name="label"
               placeholder=".."
               onChange={handleChange}
-              value={field.label}
+              // value={field.label}
             />
           )}
           {!toggleEdit && (
@@ -124,7 +115,7 @@ useEffect( ()=> {
               name="amount"
               placeholder=".."
               onChange={handleChange}
-              value={field.amount}
+              // value={field.amount}
             />
           )}
           {Operation.map((el, i) => (
@@ -134,7 +125,7 @@ useEffect( ()=> {
                 {el.created_at}
               </td> */}
 
-              <td name="label" className="col-3">
+              {/* <td name="label" className="col-3">
                 {el.label}
               </td>
 
@@ -157,9 +148,81 @@ useEffect( ()=> {
                 <i className="fas fa-trash" style={{ cursor: "pointer" }}></i>
               </td>
               <td>
-              <button onClick={!toggleEdit ? update :updateNow}>{!toggleEdit ? "update" :"Add"}</button>
+              <button onClick={toggleEdit ? update :updateNow}>{toggleEdit ? "update" :"save"}</button>
               </td>
             </tr>
+          ))}
+        </tbody>
+      </table> */}
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" colSpan="2">Date</th>
+            <th scope="col">Label</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">del</th>
+            <th scope="col">edit</th>
+          </tr>
+        </thead>
+        <td
+          colSpan="8"
+          style={{
+            textAlign: "center",
+            cursor: "pointer",
+            padding: 7,
+            border: "solid black 1px",
+            borderRadius: "2px",
+            backgroundColor: "#EA7336",
+            color: "white",
+          }}
+          onClick={handleShow}
+        >
+          {" "}
+          Click here to add new operation
+        </td>
+        <tbody>
+        {!toggleEdit && (
+            <input
+              type="text"
+              name="label"
+              placeholder=".."
+              onChange={handleChange}
+              // value={field.label}
+            />
+          )}
+          {!toggleEdit && (
+            <input
+              type="text"
+              name="amount"
+              placeholder=".."
+              onChange={handleChange}
+              // value={field.amount}
+            />
+          )}
+        {Operation.map((el, i) => (
+          <tr key={i}>
+            <td data-label="#">{ii++}</td>
+            <td data-label="Date" name="created_at" colSpan="2">{el.created_at}</td>
+            <td data-label="Label" name="label">{el.label}</td>
+            <td data-label="Amount" name="amount">{el.amount}</td>
+            <td data-label="Type"
+                name="type"
+                style={
+                  el.type == "expense"
+                    ? { backgroundColor: "red" }
+                    : { backgroundColor: "blue" }
+                }
+              >
+                {el.type}
+              </td>
+              <td data-label="del" onClick={() => dispatch(deleteOps(el._id))} className="col-1">
+                <i className="fas fa-trash" style={{ cursor: "pointer" }}></i>
+              </td>
+              <td data-label="edit" name="amount"> <button onClick={toggleEdit ? update :updateNow}>{toggleEdit ? "update" :"save"}</button></td>
+          </tr>
           ))}
         </tbody>
       </table>

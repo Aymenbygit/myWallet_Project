@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="container">
             <div className="row"  >
                 <div className="col-sm-12">
-                    <div className="card" style={{backgroundColor:"black",textAlign:"center"}}>
+                    <div className="card" style={{backgroundColor:"#183444",textAlign:"center"}}>
                     <div className="card-body">
                         <h6 className="card-title" style={{color:"white"}}>MY WALLET, <i>web application to manage your wallet</i> </h6>
                         <p className="card-text" style={{color:"#ea7336"}}>All rights reserved&copy;. 2021</p>
