@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { editUser, loadUser } from "../../actions/authAction";
 
-const EditProfile = () => {
+const EditProfile = ({ history }) => {
   const dispatch = useDispatch();
   const AuthReducer = useSelector((state) => state.AuthReducer);
-  const [toggleEdit, setToggleEdit] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(true);
   const [info, setInfo] = useState(AuthReducer.user);
 
   const handleChange = (e) => {
@@ -25,83 +25,115 @@ const EditProfile = () => {
     <div className="container">
       <h1>Edit account</h1>
       <form onSubmit={updateNow}>
-        <div>
+        <div className="row mb-3">
           {!toggleEdit ? (
-            <p> First name : {AuthReducer.user.first_name}</p>
+            <>
+              <label className="col-sm-2 col-form-label"> First name : </label>
+              <div className="col-sm-6">{AuthReducer.user.first_name}</div>
+            </>
           ) : (
             <>
-              <p> First name : </p>
-              <input
-                type="text"
-                name="first_name"
-                value={info.first_name}
-                onChange={handleChange}
-              />
+              <label className="col-sm-2 col-form-label"> First name : </label>
+              <div className="col-sm-3">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="first_name"
+                  value={info.first_name}
+                  onChange={handleChange}
+                />
+              </div>
             </>
           )}
         </div>
-        <div>
+        <div className="row mb-3">
           {!toggleEdit ? (
-            <p> Last name : {AuthReducer.user.last_name}</p>
+            <>
+              <label className="col-sm-2 col-form-label"> Last name : </label>
+              <div className="col-sm-6">{AuthReducer.user.last_name}</div>
+            </>
           ) : (
             <>
-              <p> Last name : </p>
-              <input
-                type="text"
-                name="last_name"
-                value={info.last_name}
-                onChange={handleChange}
-              />
+              <label className="col-sm-2 col-form-label"> Last name : </label>
+              <div className="col-sm-3">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="last_name"
+                  value={info.last_name}
+                  onChange={handleChange}
+                />
+              </div>
             </>
           )}
         </div>
-        <div>
+        <div className="row mb-3">
           {!toggleEdit ? (
-            <p> Birth Day : {AuthReducer.user.birth_day}</p>
+            <>
+              <label className="col-sm-2 col-form-label"> Birth Day : </label>
+              <div className="col-sm-6">{AuthReducer.user.birth_day}</div>
+            </>
           ) : (
             <>
-              <p> Birth Day : </p>
-              <input
-                type="date"
-                name="birth_day"
-                value={info.birth_day}
-                onChange={handleChange}
-              />
+              <label className="col-sm-2 col-form-label"> Birth Day : </label>
+              <div className="col-sm-3">
+                <input
+                  className="form-control"
+                  type="date"
+                  name="birth_day"
+                  value={info.birth_day}
+                  onChange={handleChange}
+                />
+              </div>
             </>
           )}
         </div>
-        <div>
+        <div className="row mb-3">
           {!toggleEdit ? (
-            <p> adresse : {AuthReducer.user.adress}</p>
+            <>
+              <label className="col-sm-2 col-form-label"> Adresse : </label>
+              <div className="col-sm-6">{AuthReducer.user.adress}</div>
+            </>
           ) : (
             <>
-              <p> last_name : </p>
-              <input
-                type="text"
-                name="adress"
-                value={info.adress}
-                onChange={handleChange}
-              />
+              <label className="col-sm-2 col-form-label"> Adresse : </label>
+              <div className="col-sm-3">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="adress"
+                  value={info.adress}
+                  onChange={handleChange}
+                />
+              </div>
             </>
           )}
         </div>
-        <div>
+        <div className="row mb-3">
           {!toggleEdit ? (
-            <p> phone : {AuthReducer.user.phone}</p>
+            <>
+              <label className="col-sm-2 col-form-label"> Phone : </label>
+              <div className="col-sm-6">{AuthReducer.user.phone}</div>
+            </>
           ) : (
             <>
-              <p> phone : </p>
-              <input
-                type="text"
-                name="phone"
-                value={info.phone}
-                onChange={handleChange}
-              />
+              <label className="col-sm-2 col-form-label"> Phone : </label>
+              <div className="col-sm-3">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="phone"
+                  value={info.phone}
+                  onChange={handleChange}
+                />
+              </div>
             </>
           )}
         </div>
         {!toggleEdit ? (
-          <button className='btn btn-dark'
+          <div className="col-sm-5" style={{ textAlign: "center" }}>
+          <button
+            className="col-6 btn btn-secondary"
             onClick={(e) => {
               e.preventDefault();
               update();
@@ -110,8 +142,14 @@ const EditProfile = () => {
             {" "}
             Edit{" "}
           </button>
+          </div>
         ) : (
-          <button type="submit" className='btn btn-dark'>Save</button>
+          <div className="col-sm-5">
+          <div style={{ textAlign: "center" }}>
+            <button type="submit" className="col-6 btn btn-success">
+              Save
+            </button>
+          </div></div>
         )}
       </form>
     </div>

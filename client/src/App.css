@@ -136,6 +136,13 @@ table tr th:first-child::before
   /* height:800px; */
   /* border: black 1px solid; */
 }
+.my_profile{
+  background-image:url("./Pic/2897f0487328c42b43a0913fd1cebaa932bc.png") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:700px;
+  /* border: black 1px solid; */
+}
 .navbaar{
   background-color: #183444;
   padding: 15px

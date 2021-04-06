@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../actions/authAction";
-import Logo from "../logo.png"
+import Logo from "../logo.png";
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Login = ({ history }) => {
     if (AuthReducer.error) {
       setErrors(AuthReducer.error);
       setTimeout(() => {
-        setErrors(null)
+        setErrors(null);
       }, 3000);
     }
   }, [AuthReducer.isAuth, AuthReducer.error]);
@@ -37,7 +37,10 @@ const Login = ({ history }) => {
           <div>
             <img src={Logo} className="col-12" />
           </div>
-          <h2><i>MY WALLET</i> is a personal finance application that rewards responsible spending and savings.</h2>
+          <h2>
+            <i>MY WALLET</i> is a personal finance application that rewards
+            responsible spending and savings.
+          </h2>
         </div>
         <div className="col-sm-5 login_home">
           <form className="container log_card " onSubmit={login}>
@@ -73,18 +76,21 @@ const Login = ({ history }) => {
                 <input type="checkbox" className="form-check-input" />
                 <label className="form-check-label">Check me out</label>
               </div>
-              {errors && errors.map((el) => <h1>{el.msg}</h1> )}
-              <button type="submit" className="btn btn-primary col-12" style={{backgroundColor:'#4ABDF3'}}  >
+              {errors && errors.map((el) => <h1>{el.msg}</h1>)}
+              <button
+                type="submit"
+                className="btn btn-primary col-12"
+                style={{ backgroundColor: "#4ABDF3" }}
+              >
                 Login
               </button>{" "}
               <hr />
               <Link to="/register">
-                <div  style={{textAlign:'center'}}>
-                <button type="submit" className="btn btn_create col-8">
-                  Create New Account
-                </button>                  
+                <div style={{ textAlign: "center" }}>
+                  <button type="submit" className="btn btn_create col-8">
+                    Create New Account
+                  </button>
                 </div>
-
               </Link>
             </div>
           </form>

@@ -25,9 +25,9 @@ function App({operations}) {
     setfilterType(!filterType)
   }  
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getOps());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getOps());
+  // }, []);
   return (
     <Router>
       <Navbar/>

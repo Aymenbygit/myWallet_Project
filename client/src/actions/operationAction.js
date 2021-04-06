@@ -13,7 +13,7 @@ import axios from "axios";
 import setToken from "../setToken";
 
 export const getOps = () => (dispatch) => {
-  // setToken();
+  setToken();
   axios.get("/operation").then((res) =>
     dispatch({
       type: GET_OP_SUCCESS,

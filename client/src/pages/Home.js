@@ -18,11 +18,13 @@ const Home = ({ addNewOp }) => {
     dispatch(getOps());
   }, []);
   // const reducer = ((accumulator, currentValue) => accumulator + currentValue, 0);
-  
-  const add = Operation.filter((el) => el.type.toLowerCase().includes("income"))
-  .map((el) => el.amount);
-  const del = Operation.filter((el) => el.type.toLowerCase().includes("expense"))
-  .map((el) => el.amount);
+
+  const add = Operation.filter((el) =>
+    el.type.toLowerCase().includes("income")
+  ).map((el) => el.amount);
+  const del = Operation.filter((el) =>
+    el.type.toLowerCase().includes("expense")
+  ).map((el) => el.amount);
   // const mount = add-del;
   // const bal = mount.reduce(reducer)
   return (
@@ -42,11 +44,12 @@ const Home = ({ addNewOp }) => {
       <h3>
         Balance
         <span>
-        {add.reduce(
+          {add.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
             0
-          )}-
-         {del.reduce(
+          )}
+          -
+          {del.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
             0
           )}
@@ -62,46 +65,6 @@ const Home = ({ addNewOp }) => {
       >
         Add a new operation
       </button>
-      <tbody>
-        {/* {Operation.filter((el) => el.type.toLowerCase().includes("income"))
-          .map((el, i) => (
-            <tr key={i}>
-              <td name="created_at">{el.created_at}</td>
-              <td name="label">{el.label}</td>
-              <td name="amount">{el.amount}</td>
-              <td
-                name="type"
-                style={
-                  el.type == "expense"
-                    ? { backgroundColor: "red" }
-                    : { backgroundColor: "blue" }
-                }
-              >
-                {el.type}
-              </td>
-            </tr>
-          ))
-          .slice(0, 2)} */}
-        {/* {Operation.filter((el) => el.type.toLowerCase().includes("expense"))
-          .map((el, i) => (
-            <tr key={i}>
-              <td name="created_at">{el.created_at}</td>
-              <td name="label">{el.label}</td>
-              <td name="amount">{el.amount}</td>
-              <td
-                name="type"
-                style={
-                  el.type == "expense"
-                    ? { backgroundColor: "red" }
-                    : { backgroundColor: "blue" }
-                }
-              >
-                {el.type}
-              </td>
-            </tr>
-          ))
-          .slice(0, 2)} */}
-      </tbody>
       <table>
         <thead>
           <tr>
@@ -112,48 +75,63 @@ const Home = ({ addNewOp }) => {
           </tr>
         </thead>
         <tbody>
-        {Operation.filter((el) => el.type.toLowerCase().includes("income"))
-          .map((el, i) => (
-          <tr key={i}>
-            <td data-label="Date" name="created_at">{el.created_at}</td>
-            <td data-label="Label" name="label">{el.label}</td>
-            <td data-label="Amount" name="amount">{el.amount}</td>
-            <td data-label="Type"
-                name="type"
-                style={
-                  el.type == "expense"
-                    ? { backgroundColor: "#FF6347" }
-                    : { backgroundColor: "#1E90FF" }
-                }
-              >
-                {el.type}
-              </td>
-          </tr>
-          ))
-          .slice(0, 2)}
-        {Operation.filter((el) => el.type.toLowerCase().includes("expense"))
-          .map((el, i) => (
-          <tr key={i}>
-            <td data-label="Date" name="created_at">{el.created_at}</td>
-            <td data-label="Label" name="label">{el.label}</td>
-            <td data-label="Amount" name="amount">{el.amount}</td>
-            <td data-label="Type"
-                name="type"
-                style={
-                  el.type == "expense"
-                    ? { backgroundColor: "#FF6347" }
-                    : { backgroundColor: "#1E90FF" }
-                }
-              >
-                {el.type}
-              </td>
-          </tr>
-          ))
-          .slice(0, 2)}
+          {Operation.filter((el) => el.type.toLowerCase().includes("income"))
+            .map((el, i) => (
+              <tr key={i}>
+                <td data-label="Date" name="created_at">
+                  {el.created_at}
+                </td>
+                <td data-label="Label" name="label">
+                  {el.label}
+                </td>
+                <td data-label="Amount" name="amount">
+                  {el.amount}
+                </td>
+                <td
+                  data-label="Type"
+                  name="type"
+                  style={
+                    el.type == "expense"
+                      ? { backgroundColor: "#FF6347" }
+                      : { backgroundColor: "#1E90FF" }
+                  }
+                >
+                  {el.type}
+                </td>
+              </tr>
+            ))
+            .slice(0, 2)}
+          {Operation.filter((el) => el.type.toLowerCase().includes("expense"))
+            .map((el, i) => (
+              <tr key={i}>
+                <td data-label="Date" name="created_at">
+                  {el.created_at}
+                </td>
+                <td data-label="Label" name="label">
+                  {el.label}
+                </td>
+                <td data-label="Amount" name="amount">
+                  {el.amount}
+                </td>
+                <td
+                  data-label="Type"
+                  name="type"
+                  style={
+                    el.type == "expense"
+                      ? { backgroundColor: "#FF6347" }
+                      : { backgroundColor: "#1E90FF" }
+                  }
+                >
+                  {el.type}
+                </td>
+              </tr>
+            ))
+            .slice(0, 2)}
         </tbody>
       </table>
-      <Link to="/operations" style={{textDecoration:"none"}} ><h5 style={{color:"#f5c657"}} >⮞Show all operations</h5></Link>
-      
+      <Link to="/operations" style={{ textDecoration: "none" }}>
+        <h5 style={{ color: "#f5c657" }}>⮞Show all operations</h5>
+      </Link>
     </div>
   );
 };

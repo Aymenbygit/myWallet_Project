@@ -10,6 +10,7 @@ import {
 import AddOperation from "./operations/addOperation";
 
 const Operations = ({ search }) => {
+
   const AuthReducer = useSelector((state) => state.AuthReducer);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -18,7 +19,7 @@ const Operations = ({ search }) => {
   const Operation = useSelector((state) => state.OperationReducer);
   const SaveOperation = useSelector((state) => state.SavedOperation);
   const [toggleEdit,setToggleEdit] = useState(false)
-  const [field, setfield] = useState(SaveOperation?SaveOperation.saved:'');
+  const [field, setfield] = useState(SaveOperation ? SaveOperation.saved : '');
   const handleChange = (e) => {
     setfield({ ...field, [e.target.name]: e.target.value });
   };
@@ -167,13 +168,15 @@ useEffect( ()=> {
             <th scope="col">edit</th>
           </tr>
         </thead>
-        <td
+        <tbody>
+          <tr>
+        <th
           colSpan="8"
           style={{
             textAlign: "center",
             cursor: "pointer",
             padding: 7,
-            border: "solid black 1px",
+            border: "solid black 2px",
             borderRadius: "2px",
             backgroundColor: "#EA7336",
             color: "white",
@@ -182,13 +185,13 @@ useEffect( ()=> {
         >
           {" "}
           Click here to add new operation
-        </td>
-        <tbody>
-        {!toggleEdit && (
+        </th>
+        </tr>
+        {/* {!toggleEdit && (
             <input
               type="text"
               name="label"
-              placeholder=".."
+              placeholder=""
               onChange={handleChange}
               // value={field.label}
             />
@@ -197,11 +200,11 @@ useEffect( ()=> {
             <input
               type="text"
               name="amount"
-              placeholder=".."
+              placeholder=""
               onChange={handleChange}
               // value={field.amount}
             />
-          )}
+          )} */}
         {Operation.map((el, i) => (
           <tr key={i}>
             <td data-label="#">{ii++}</td>
@@ -218,7 +221,7 @@ useEffect( ()=> {
               >
                 {el.type}
               </td>
-              <td data-label="del" onClick={() => dispatch(deleteOps(el._id))} className="col-1">
+              <td data-label="del" data-confirm="Are you sure to delete this item?" onClick={() => dispatch(deleteOps(el._id))} className="col-1">
                 <i className="fas fa-trash" style={{ cursor: "pointer" }}></i>
               </td>
               <td data-label="edit" name="amount"> <button onClick={toggleEdit ? update :updateNow}>{toggleEdit ? "update" :"save"}</button></td>
