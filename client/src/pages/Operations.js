@@ -55,7 +55,7 @@ const Operations = ({ search }) => {
     <div className="container">
       <AddOperation handleClose={handleClose} show={show} />
       <h2 className="btn-dark">
-        Balance{" "}
+        Balancee{" "}
         <span>
           {aamount.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
