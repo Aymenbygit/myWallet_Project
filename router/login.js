@@ -8,6 +8,7 @@ const secret_key = process.env.SECRET_KEY;
 const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 
+
 //load connected user
 router.get("/", authMiddleware, (req, res) => {
   User.findById(req.userId)

@@ -15,7 +15,6 @@ const SavedOperation = (state = {saved:null,isEdited:false}, action) => {
         case SAVED_OP:
             return {
               saved:action.payload,
-              isEdited: !state.isEdited
             };
         case FINISH_SAVED_OP:
             return {

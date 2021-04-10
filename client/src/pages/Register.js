@@ -51,7 +51,7 @@ const Register = ({ history }) => {
               // required="required"
             />
           </div>
-          {/* <span>{infos.first_name == ""&& "dd"}</span> */}
+          {errors && errors[0].msg}
           <div className="mb-3">
             <label className="form-label">Last name</label>
             <input
@@ -109,6 +109,7 @@ const Register = ({ history }) => {
               onChange={handleChange}
             />
           </div>
+          
           {errors && errors.map((el,i) => <h1 key={i} >{el.msg}</h1>)}
           <div style={{ textAlign: "center" }}>
             <button type="submit" className="btn btn-primary col-sm-6">

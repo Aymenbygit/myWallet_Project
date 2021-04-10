@@ -13,44 +13,44 @@ const Profile = () => {
   return (
     <div className="container ">
       {/* <img src={Pic} style={{opacity:0.6,backgroundRepeat:'no-repeat',backgroundSize:"cover"}} /> */}
-      <h1>Your account</h1>
+      <h1 style={{color:'grey'}} >Your account</h1>
       <div className="row">
         <div className="col-sm-5">
-          <table className="table table-dark table-borderless">
+          <table className="table table-borderless">
             <tbody>
               <tr>
                 <td style={{ textAlign: "left" }}>First name :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left", fontWeight:"bold" }}>
                   {AuthReducer.user && AuthReducer.user.first_name}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: "left" }}>Last name :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left", fontWeight:"bold" }}>
                   {AuthReducer.user && AuthReducer.user.last_name}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: "left" }}>Birth Day :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left", fontWeight:"bold" }}>
                   {AuthReducer.user && AuthReducer.user.birth_day}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: "left" }}>Address :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left", fontWeight:"bold" }}>
                   {AuthReducer.user && AuthReducer.user.adress}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: "left" }}>Phone :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left" , fontWeight:"bold"}}>
                   {AuthReducer.user && AuthReducer.user.phone}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: "left" }}>Email :</td>
-                <td style={{ textAlign: "left" }}>
+                <td style={{ textAlign: "left", fontWeight:"bold" }}>
                   {AuthReducer.user && AuthReducer.user.email}
                 </td>
               </tr>

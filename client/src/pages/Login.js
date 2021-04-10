@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../actions/authAction";
+import { loginUser,checkUser } from "../actions/authAction";
 import Logo from "../logo.png";
+
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ const Login = ({ history }) => {
       }, 3000);
     }
   }, [AuthReducer.isAuth, AuthReducer.error]);
+  // useEffect(()=>{
+  //   dispatch(checkUser())
+  // },[])
   return (
     <div className="loginC container">
       <div className="row">

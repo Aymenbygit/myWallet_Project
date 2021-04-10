@@ -34,7 +34,7 @@ function App({operations}) {
       <Switch>
         <PrivateRoutes exact path='/' component={Home} />
         <PrivateRoutes exact path='/profile' component={Profile} />
-        <PrivateRoutes exact path='/operations' component={() => <Operations search={search} Operation={Operation.filter((operation)=>operation.label.toLowerCase().includes(searchValue.toLowerCase().trim()))} />}/>
+        <PrivateRoutes search={search} Operation={Operation.filter((operation)=>operation.label.toLowerCase().includes(searchValue.toLowerCase().trim()))} exact path='/operations' component={Operations }/>
         <PrivateRoutes exact path='/profile/edit_profile' component={EditProfile} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />

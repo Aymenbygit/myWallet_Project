@@ -61,14 +61,13 @@ export const deleteOps = (id) => (dispatch) => {
     //     payload: err.response.data,
     //   })
     // );
-
   dispatch(getOps());
 };
 
-export const editOps = (_id) => (dispatch) => {
+export const editOps = (_id,info) =>async (dispatch) => {
   setToken();
   axios
-    .put(`/operation/update/${_id}`)
+    .put(`/operation/update/${_id}`,info)
     .then((res) =>
       dispatch({
         type: SAVED_OP,
@@ -91,7 +90,7 @@ export const saveOps = (infos) => (dispatch) => {
         type: EDIT_OP_SUCCESS,
         payload: res.data,
       })
-    )
+      )
     .catch((err) =>
       dispatch({
         type: EDIT_OP_FAIL,
