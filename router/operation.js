@@ -4,7 +4,7 @@ const authMiddleware = require("../helpers/authMiddleware");
 const Operation = require("../models/Operations");
 const User = require("../models/User");
 
-//add new operation
+//add neew operation
 router.post("/new_operation", authMiddleware, (req, res) => {
   let newOperation = new Operation({ ...req.body, owner: req.userId });
   newOperation
